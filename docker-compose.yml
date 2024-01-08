@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  backend:
+    build:
+      context: ./Backend/hadiya_products_backend
+      dockerfile: Dockerfile
+    ports:
+      - "3001:3000"  # Adjust the port as needed
+    networks:
+      - my_network
+
+  frontend:
+    build:
+      context: ./Frontend
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"  # Adjust the port as needed
+    networks:
+      - my_network
+
+networks:
+  my_network:
+    driver: bridge
+
